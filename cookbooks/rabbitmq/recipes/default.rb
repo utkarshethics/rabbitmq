@@ -38,10 +38,14 @@ service "rabbitmq-server" do
   action [:enable, :start]
 end
 
+cookbook_file "/tmp/run.sh" do
+  source "run.sh"
+  mode 0755
+end
+
 execute "Adding RabbitMQ user" do
- command "rabbitmqctl add_user admin password"
- command "rabbitmqctl set_user_tags admin administrator"
- command "rabbitmqctl set_permissions -p / admin '.*' '.*' '.*'"
+ user "root"
+ command "sh /tmp/run.sh"
 end
 
 service 'rabbitmq-server' do
