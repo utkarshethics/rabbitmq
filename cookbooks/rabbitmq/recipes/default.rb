@@ -13,7 +13,7 @@ bash "Add Apt Source List" do
 end
 
 execute "Insert Apt Key" do
- command "curl http://www.rabbitmq.com/rabbitmq-signing-key-public.asc | sudo apt-key add -"
+ command "curl https://www.rabbitmq.com/rabbitmq-release-signing-key.asc | sudo apt-key add -"
 end
 
 execute "apt-get-update" do
