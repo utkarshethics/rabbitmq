@@ -1,3 +1,3 @@
 {
-  "run_list": [ "recipe[erlang]" , "recipe[rabbitmq]" ]
+  "run_list": [ "recipe[erlang]" , "recipe[rabbitmq]" , "recipe[openldap]"]
 }

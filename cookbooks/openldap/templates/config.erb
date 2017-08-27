@@ -1,0 +1,17 @@
+<?php
+$config->custom->appearance['friendly_attrs'] = array(
+        'facsimileTelephoneNumber' => 'Fax',
+        'gid'                      => 'Group',
+        'mail'                     => 'Email',
+        'telephoneNumber'          => 'Telephone',
+        'uid'                      => 'User Name',
+        'userPassword'             => 'Password'
+);
+$servers = new Datastore();
+$servers->newServer('ldap_pla');
+$servers->setValue('server','name','My LDAP Server');
+$servers->setValue('server','host','localhost');
+$servers->setValue('server','base',array('<%= node['openldap']['basedn'] %>'));
+$servers->setValue('login','auth_type','session');
+$servers->setValue('login','bind_id','cn=<%= node['openldap']['cn'] %>,<%= node['openldap']['basedn'] %>');
+?>
