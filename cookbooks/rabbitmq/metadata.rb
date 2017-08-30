@@ -1,20 +1,34 @@
+# frozen_string_literal: true
 name 'rabbitmq'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
-license 'All Rights Reserved'
-description 'Installs/Configures rabbitmq'
-long_description 'Installs/Configures rabbitmq'
-version '0.1.0'
-chef_version '>= 12.1' if respond_to?(:chef_version)
+maintainer 'Chef, Inc.'
+maintainer_email 'jj@chef.io'
+license 'Apache-2.0'
+description 'Installs and configures RabbitMQ server'
+version '5.2.0'
+recipe 'rabbitmq', 'Install and configure RabbitMQ'
+recipe 'rabbitmq::cluster', 'Set up RabbitMQ clustering.'
+recipe 'rabbitmq::plugin_management', 'Manage plugins with node attributes'
+recipe 'rabbitmq::virtualhost_management', 'Manage virtualhost with node attributes'
+recipe 'rabbitmq::user_management', 'Manage users with node attributes'
 
-# The `issues_url` points to the location where issues for this cookbook are
-# tracked.  A `View Issues` link will be displayed on this cookbook's page when
-# uploaded to a Supermarket.
-#
-# issues_url 'https://github.com/<insert_org_here>/rabbitmq/issues'
+issues_url 'https://github.com/rabbitmq/chef-cookbook/issues'
+source_url 'https://github.com/rabbitmq/chef-cookbook'
 
-# The `source_url` points to the development repository for this cookbook.  A
-# `View Source` link will be displayed on this cookbook's page when uploaded to
-# a Supermarket.
-#
-# source_url 'https://github.com/<insert_org_here>/rabbitmq'
+chef_version '>= 12.0'
+
+depends 'erlang'
+depends 'yum-epel'
+depends 'yum-erlang_solutions'
+depends 'dpkg_autostart'
+depends 'logrotate'
+
+supports 'centos', '>= 7.0'
+supports 'debian', '>= 8.0'
+supports 'opensuse'
+supports 'opensuseleap'
+supports 'oracle'
+supports 'redhat'
+supports 'scientific'
+supports 'smartos'
+supports 'suse'
+supports 'ubuntu', '>= 14.04'
