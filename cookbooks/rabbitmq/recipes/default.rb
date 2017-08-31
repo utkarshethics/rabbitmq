@@ -110,7 +110,7 @@ when 'debian'
     end
   end
 
-when 'rhel', 'fedora'
+when 'rhel', 'fedora', 'amazon', 'centos'
 
   # logrotate is a package dependency of rabbitmq-server
   package 'logrotate'
