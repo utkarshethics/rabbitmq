@@ -27,6 +27,7 @@ end
 
 include_recipe 'erlang'
 
+raise "`#{node['platform_family']}' is not supported!"
 ## Install the package
 case node['platform_family']
 when 'debian'
