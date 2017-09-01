@@ -1,0 +1,3 @@
+{
+  "run_list": [ "recipe[yum-erlang_solutions]" , "recipe[erlang]" , "recipe[rabbitmq]" , "recipe[rabbitmq::plugin_management]" , "recipe[rabbitmq::virtualhost_management]" ,  "recipe[rabbitmq::user_management]"]
+}
